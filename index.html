@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAKES by KULSOOM | Bespoke Royal Elegance</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --gold: #C7A17A;
+            --gold-dark: #A68059;
+            --charcoal: #2D2D2D;
+            --light-gray: #F8F8F8;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: var(--charcoal);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .cinzel {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 15px 10%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .logo {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--charcoal);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold) !important;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                        url('https://st2.depositphotos.com/5436362/11532/i/450/depositphotos_115326974-stock-photo-bakery-background-baking-ingredients-over.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero-content h1 {
+            color: var(--white);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            color: var(--white);
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--white);
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            border-color: var(--white);
+            box-shadow: 0 0 20px rgba(199, 161, 122, 0.4);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--charcoal);
+        }
+
+        /* --- Common Section Styles --- */
+        section {
+            padding: 120px 10%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header span {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--charcoal);
+        }
+
+        /* --- About Section --- */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            background-color: var(--white);
+        }
+
+        .about-img {
+            flex: 1;
+            position: relative;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            box-shadow: 40px 40px 0px var(--light-gray);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* --- Gallery Section --- */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            width: 100%;
+            padding: 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 45, 45, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* --- Menu Section --- */
+        .menu {
+            background-color: var(--light-gray);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            border: 1px solid var(--gold);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .menu-card-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .menu-card-body h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: var(--gold);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* --- Reviews Section --- */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .review-card {
+            padding: 50px 40px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            background-color: var(--gold);
+        }
+
+        .review-card:hover * {
+            color: var(--white) !important;
+        }
+
+        .review-card i.quote-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .reviewer {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* --- Contact Section --- */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input, .contact-form select, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 10px rgba(199, 161, 122, 0.1);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            background: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 80px 10% 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .social-links {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.2rem;
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .footer-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
+            margin: 40px 0;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 1024px) {
+            .about, .contact-container { grid-template-columns: 1fr; flex-direction: column; }
+            .gallery-container { grid-template-columns: repeat(2, 1fr); }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            section { padding: 80px 5%; }
+            .hero-content h1 { font-size: 3.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo cinzel">KULSOOM</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#menu">The Menu</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#order">Contact</a></li>
+        </ul>
+        <div class="mobile-toggle" style="color: white; display: none;"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p>Signature Artisanal Bakes</p>
+            <h1>Bespoke Cakes Crafted with Royal Elegance</h1>
+            <div class="btn-group">
+                <a href="#order" class="btn btn-gold">Order Now</a>
+                <a href="#menu" class="btn btn-outline">View Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about reveal" id="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1535141192574-5d4897c825a1?auto=format&fit=crop&q=80&w=800" alt="Exquisite Cake Art">
+        </div>
+        <div class="about-content">
+            <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                <span>Premium Quality</span>
+                <h2>The Art of Custom Baking</h2>
+            </div>
+            <p>At Cakes by Kulsoom, we believe that every celebration deserves a centerpiece as unique as the moment itself. Our cakes are more than just desserts; they are handcrafted sculptures designed with meticulous attention to detail.</p>
+            <p>We use only the finest organic ingredients, from Belgian chocolate to Madagascar vanilla, ensuring that the taste is as phenomenal as the presentation. From royal weddings to intimate celebrations, we bring your vision to life with elegance and grace.</p>
+            <a href="#menu" class="btn btn-gold" style="display: inline-block; color: white;">Discover More</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Full Width, No Space) -->
+    <div class="gallery-container" id="gallery">
+        <div class="gallery-item reveal">
+            <img src="https://images.unsplash.com/photo-1551829142-d9b812ee3f23?auto=format&fit=crop&q=80&w=600" alt="Floral Wedding Cake">
+            <div class="gallery-overlay">
+                <h3 class="cinzel">Weddings</h3>
+                <p>Pure White Elegance</p>
+            </div>
+        </div>
+        <div class="gallery-item reveal">
+            <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?auto=format&fit=crop&q=80&w=600" alt="Chocolate Luxury">
+            <div class="gallery-overlay">
+                <h3 class="cinzel">Anniversaries</h3>
+                <p>Rich Ganache Perfection</p>
+            </div>
+        </div>
+        <div class="gallery-item reveal">
+            <img src="https://images.unsplash.com/photo-1616731948644-87483bcdb6d9?auto=format&fit=crop&q=80&w=600" alt="Pastel Cake">
+            <div class="gallery-overlay">
+                <h3 class="cinzel">Birthdays</h3>
+                <p>Modern Artistic Designs</p>
+            </div>
+        </div>
+        <div class="gallery-item reveal">
+            <img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&q=80&w=600" alt="Artisan Pastries">
+            <div class="gallery-overlay">
+                <h3 class="cinzel">Specialty</h3>
+                <p>Bespoke Creative Tarts</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Section -->
+    <section class="menu reveal" id="menu">
+        <div class="section-header">
+            <span>Our Selection</span>
+            <h2>Signature Collections</h2>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&q=80&w=600" alt="Classic Truffle">
+                <div class="menu-card-body">
+                    <h3>Classic Truffle Royale</h3>
+                    <p class="price">Starting at $120</p>
+                </div>
+            </div>
+            <div class="menu-item menu-card">
+                <img src="https://images.unsplash.com/photo-1535254973040-607b474cb8c2?auto=format&fit=crop&q=80&w=600" alt="Velvet Dream">
+                <div class="menu-card-body">
+                    <h3>Velvet Crimson Dream</h3>
+                    <p class="price">Starting at $140</p>
+                </div>
+            </div>
+            <div class="menu-item menu-card">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&q=80&w=600" alt="Golden Caramel">
+                <div class="menu-card-body">
+                    <h3>Salted Gold Caramel</h3>
+                    <p class="price">Starting at $110</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews reveal" id="reviews">
+        <div class="section-header">
+            <span>Kind Words</span>
+            <h2>Customer Experiences</h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">“The quality of cake was awesome and it tasted as good as it looks. Highly recommended for customized cakes.”</p>
+                <h4 class="reviewer">Hamza Shahid</h4>
+            </div>
+            <div class="review-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">“I ordered my son’s birthday cake. She did a phenomenal job. Everything was perfect! She is very cooperative as well. I’ll recommend.”</p>
+                <h4 class="reviewer">Asfa Asad</h4>
+            </div>
+            <div class="review-card">
+                <i class="fas fa-quote-right quote-icon"></i>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="review-text">“They have really delicious cakes in town. Strongly recommended for birthdays and celebrations.”</p>
+                <h4 class="reviewer">Alpha Romeo</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order/Contact Section -->
+    <section id="order" class="reveal">
+        <div class="contact-container">
+            <div class="contact-form">
+                <div class="section-header" style="text-align: left; margin-bottom: 40px;">
+                    <span>Reserve Your Cake</span>
+                    <h2>Get In Touch</h2>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Select Cake Type</option>
+                            <option>Wedding Cake</option>
+                            <option>Birthday Cake</option>
+                            <option>Anniversary Cake</option>
+                            <option>Custom Celebration</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Tell us about your dream cake..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold" style="width: 100%;">Inquire Now</button>
+                </form>
+            </div>
+            <div class="map-side">
+                <div class="map-placeholder">
+                    <!-- Embedded Google Maps (Example Location) -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3319.261864811776!2d73.06497127627447!3d33.70868843577323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbf9087037701%3A0xc6c4f3460f78997!2sCentaurus%20Mall!5e0!3m2!1sen!2s!4v1690000000000!5m2!1sen!2s" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: grayscale(1) invert(0.1);" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span class="footer-logo">KULSOOM</span>
+        <p class="cinzel" style="font-size: 0.8rem;">Every Slice is a Masterpiece</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>12th Street, Luxury District, Islamabad, Pakistan</p>
+        <p>Phone: +92 300 123 4567 | Email: info@cakesbykulsoom.pk</p>
+        <div class="footer-line"></div>
+        <p class="copyright">&copy; 2026 Cakes by Kulsoom. Designed with Elegance.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal animations on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+        // Initial check for reveal
+        reveal();
+
+        // Smooth Scrolling for Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
